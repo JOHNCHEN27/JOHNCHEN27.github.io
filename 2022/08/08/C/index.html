@@ -20,14 +20,17 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="C++基础">
+  <meta name="description" content="C++ 基础 - 笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++">
 <meta property="og:url" content="http://example.com/2022/08/08/C/index.html">
 <meta property="og:site_name" content="调查处的007">
+<meta property="og:description" content="C++ 基础 - 笔记">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-08T10:08:01.000Z">
-<meta property="article:modified_time" content="2022-08-08T13:25:43.143Z">
+<meta property="article:modified_time" content="2022-08-09T08:14:29.990Z">
 <meta property="article:author" content="John Chen">
+<meta property="article:tag" content="语言">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2022/08/08/C/">
@@ -43,7 +46,7 @@
   };
 </script>
 
-  <title>C++基础 | 调查处的007</title>
+  <title>C++ | 调查处的007</title>
   
 
 
@@ -171,7 +174,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C++基础
+          C++
         </h1>
 
         <div class="post-meta">
@@ -185,10 +188,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-08 18:08:01 / 修改时间：21:25:43" itemprop="dateCreated datePublished" datetime="2022-08-08T18:08:01+08:00">2022-08-08</time>
+              <time title="创建时间：2022-08-08 18:08:01" itemprop="dateCreated datePublished" datetime="2022-08-08T18:08:01+08:00">2022-08-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-09 16:14:29" itemprop="dateModified" datetime="2022-08-09T16:14:29+08:00">2022-08-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -205,14 +214,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -224,7 +233,101 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>C++ 基础 - 笔记</p>
+<span id="more"></span>
+
+<h4 id="C-基本概念"><a href="#C-基本概念" class="headerlink" title="C++基本概念"></a>C++基本概念</h4><p>C++框架：</p>
+<p>#include<iostream></p>
+<p>using namespace std;</p>
+<p>int main()</p>
+<p>{</p>
+<p>​            system(“pause”);</p>
+<p>​            return 0;</p>
+<p>}</p>
+<p>注释：用来解释代码的作用</p>
+<p>单行注释： &#x2F;&#x2F; （两个斜杠）</p>
+<p>多行注释： &#x2F;*          *&#x2F;</p>
+<h5 id="变量及常量"><a href="#变量及常量" class="headerlink" title="变量及常量"></a>变量及常量</h5><p>变量是用来存放内容的一个地址</p>
+<p>语法格式： 数据类型 变量名 &#x3D; 初始化值;  如： int a &#x3D; 10；</p>
+<p>常量是不可改变的量：如血型、固定的数值等等 ；常量又有 #define 定义的常量和const 修饰的常变量</p>
+<p>#define定义的常量： #define 常量名 常量值 </p>
+<p>const修饰的常变量：const int mouth &#x3D; 12；</p>
+<p> 都是不可改变的量。</p>
+<h5 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h5><p>用来标识一个实体的某个符号。标识符的命名规则：</p>
+<p>（1）标识符不能是关键字</p>
+<p>（2）标识符由数字、字母、下划线构成</p>
+<p>（3）标识符第一个字符只能是字母和下划线，不能是数字</p>
+<p>（4）标识符区分大小写</p>
+<p>给变量起名的时候最好能够做到见名知意！ – 方便自己和他人阅读代码</p>
+<h5 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h5><p>在创建一个变量或常量时，必须指明数据类型，否则无法分配内存空间，选用合适的数据类型能更好的分配内存空间。</p>
+<p>（1）整型：表示整数的数据类型</p>
+<p>int 整型 - 占4字节 ， short 短整型  -占2字节 （-32768 - 32767），long 长整型 windows占4字节，linux 32位系统下 占4字节，64位系统下占8字节。  longlong 长长整型 - 占8字节。</p>
+<p>（2）sizeof 关键字</p>
+<p>利用sizeof可以计算数据类型所占内存空间大小，单位：字节</p>
+<p>语法： sizeof（数据类型 或 变量）；</p>
+<p>整型大小的比较： short &lt; int &lt; &#x3D; long &lt;&#x3D; long long</p>
+<p>扩展一下： 计算机中的最小单位是 比特位 - bit 。8个比特位占1个字节，</p>
+<p>（3）实型（浮点型）</p>
+<p>表示小数； 分为单精度浮点型 float 和双精度浮点型 double；默认情况下，输出一个小数，会显示6位有效数字。</p>
+<p>（4）字符型</p>
+<p>用于显示单个字符；字符要用单引号括起来，并且只能包含一个字符； 创建：char ch &#x3D; ‘ a ’ ;</p>
+<p>字符型变量对应ASCII值 a - 97 ； A  - 65.</p>
+<p>（5）字符串型</p>
+<p>用于表示一串字符， 字符串要用双引号括起来；有两种风格：C语言 和 C++ 风格</p>
+<p>C语言： char ch[ ] &#x3D; “ abcde   “; </p>
+<p>C++风格： string ch &#x3D; “ abcde”; </p>
+<p>C语言风格是采用字符数组来存放字符串，C++风格需要引用头文件 string；相对于C语言风格较为简便</p>
+<p>语法格式： 类型 变量名 &#x3D; “初值” ；</p>
+<p> （6）转义字符</p>
+<p>用于表示一些不能显示出来的ASCII字符</p>
+<p>\n 换行符：用户换行 cout &lt;&lt;”aa\n” ;</p>
+<p>\ 反斜杠：用来转变原本的含义</p>
+<p>\t  水平制表符：占八个字节，用来保持水平、对齐</p>
+<p>（7）布尔类型</p>
+<p>表示 真 或 假 的值； bool 本质上 1代表真值，0表示为假</p>
+<p>true 表示为真， false 表示为假； 如：bool 变量名 &#x3D; true 或 false ； bool flag  &#x3D; true ；bool类型所占的空间大小为1字节。</p>
+<p>（8）数据的输入和输出</p>
+<p>关键字： cout  、 cin</p>
+<p>格式： cout  &lt;&lt; “ “ &lt;&lt; endl;  – endl表示换行 ;   cin  &gt;&gt; 变量名； 如 : cin  &gt;&gt; flag;</p>
+<h5 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h5><p>用于执行代码的运算；分为算术运算符、比较运算符、赋值运算符、逻辑运算符。</p>
+<p>（1）算术运算符</p>
+<p>+、-、*、&#x2F; ；两个数相除 ，除数不可以为0；两个小数可以相除，运算的结果也可以是小数。</p>
+<p>取模运算：%    ； 两个数相除，除数不可以为0，不然做不了取模运算；取模运算本质上是先进行除法再去余数。</p>
+<p>递增递减： ++ 、 - - ； 分为前置++ 、前置 - -、后置++、 后置–； 前置++是先加加再使用</p>
+<p>后置加加是先使用后加加，前置- - 是先减再使用，后置 - - 是先使用后减。</p>
+<p>#include<iostream></p>
+<p>using namespace std;</p>
+<p>int main()</p>
+<p>{</p>
+<p> int a &#x3D; 10;  int b &#x3D; 20;  </p>
+<p> int c &#x3D; a++ ; int  d &#x3D;  ++ a;  &#x2F;&#x2F; 此处c 的结果是 10 ，a是11. d的结果是11 .</p>
+<p>​             return 0;</p>
+<p>} </p>
+<p>（2）赋值运算符</p>
+<p>&#x3D; 、+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D; 、 %&#x3D; ； 如： a+&#x3D; 2;  实际上是 ： a &#x3D; a + 2; 其它赋值运算符以此类推。</p>
+<p>（3）比较运算符</p>
+<p>用于表达式的比较，并返回一个真值或假值。 &#x3D;&#x3D; 、！&#x3D;、&lt;&#x3D;、 &gt;&#x3D; 、&lt;、&gt;</p>
+<p>（4）逻辑运算符</p>
+<p>逻辑非： ！ – 如： ！a ，如果a为真，！a就表示假，a为假，！a就为真；本质上是相反的。</p>
+<p>逻辑与：&amp;&amp; – a &amp;&amp; b 表示： 如果a、b为真，那表达式结果为真，否则为假，</p>
+<p>逻辑或： ||  – a || b 表示: 如果a或b有一个为真，则结果为真，只有两个为假的时候，结果为假。</p>
+<p>#include<iostream></p>
+<p>#include<string></p>
+<p>using namespace std;</p>
+<p>int main()</p>
+<p>{</p>
+<p>​       int  a &#x3D; 10; char c &#x3D; ‘a’ ; float   b &#x3D; 8.8;  string ch &#x3D; “abcde” ; char cha[] &#x3D; “ABCDE”;</p>
+<p> bool flag &#x3D; true;</p>
+<p>cout &lt;&lt; “ a &#x3D; “  &lt;&lt; a &lt;&lt; endl;</p>
+<p>int w ; </p>
+<p>cin &gt;&gt; w;  </p>
+<p>cout &lt;&lt; “ w &#x3D; “ &lt;&lt; w &lt;&lt; endl;</p>
+<p>int c &#x3D; a ++ ; </p>
+<p>int t  &#x3D; a&amp;&amp; c ;</p>
+<p>cout &lt;&lt;  c &lt;&lt; “ “  &lt;&lt;  t &lt;&lt; endl;</p>
+<p>return0;</p>
+<p>}</p>
+
     </div>
 
     
@@ -252,6 +355,9 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AF%AD%E8%A8%80/" rel="tag"># 语言</a>
+          </div>
 
         
 
@@ -324,6 +430,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#C-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">C++基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%8F%8A%E5%B8%B8%E9%87%8F"><span class="nav-number">1.1.</span> <span class="nav-text">变量及常量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-number">1.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.4.</span> <span class="nav-text">运算符</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -348,6 +455,12 @@
           
         <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -387,12 +500,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">0k</span>
+    <span title="站点总字数">3k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">2 分钟</span>
 </div>
 
         
