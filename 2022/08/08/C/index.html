@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://example.com/C/%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F.png">
 <meta property="og:image" content="http://example.com/C/%E8%81%8C%E5%B7%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%9C%80%E6%B1%82.png">
 <meta property="article:published_time" content="2022-08-08T10:08:01.000Z">
-<meta property="article:modified_time" content="2022-09-06T03:30:30.737Z">
+<meta property="article:modified_time" content="2022-09-13T11:02:27.195Z">
 <meta property="article:author" content="John Chen">
 <meta property="article:tag" content="语言">
 <meta name="twitter:card" content="summary">
@@ -203,7 +203,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-06 11:30:30" itemprop="dateModified" datetime="2022-09-06T11:30:30+08:00">2022-09-06</time>
+                <time title="修改时间：2022-09-13 19:02:27" itemprop="dateModified" datetime="2022-09-13T19:02:27+08:00">2022-09-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,14 +221,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>81k</span>
+              <span>83k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1:14</span>
+              <span>1:15</span>
             </span>
 
         </div>
@@ -831,6 +831,18 @@
 <h2 id="创建管理类"><a href="#创建管理类" class="headerlink" title="创建管理类"></a>创建管理类</h2><p>内容如下：</p>
 <p>与用户沟通的界面；对职工进行增删查改的操作；与文件的读写交互。</p>
 <p>创建wokermanager.h头文件 和 wokermanager.cpp源文件</p>
+<p><strong>思路：</strong></p>
+<p>首先创建职工管理系统源文件， 在此文件中调用接口（创建类对象，利用对象来调用类中的接口）， 利用封装技术，创建WorkerManager 头文件，在头文件中写接口的实现， 然后再写一个源文件写接口的声明；</p>
+<p>首先在WorkerManager 头文件中创建一个函数实现菜单功能，在源文件中调用， 在职工管理系统中创建WorkerManager 类对象来调用菜单函数（之后的步骤也是通过类对象来调用各个部分的功能）</p>
+<p> 在职工管理系统源文件中利用switc语句来实现职工管理系统的各个功能，各个功能的实现写在WorkerManager 源文件中，利用类对象来调用各个功能接口。</p>
+<p>利用多态技术来完成各个职工的接口， 创建一个父类 （包含 获取个人信息，获取部门，id 、name、did）；</p>
+<p>然后创建几个职工类别来继承父类，重写父类中的纯虚函数，以及写自己的构造函数（初始化对象值），当父类指针调用子类对象时，发生多态。</p>
+<p>添加职工人数函数实现时，首先要创建新的人数（包含添加的人数和原来的人数）， 创建新的数组，大小为新的人数大小（此数组初始化完成之后赋值给WorkerManager 中的数组），再给新的数组中的每个对象重新赋值，然后利用for循环添加职工信息，在选择职工岗位时，利用Worker父类指针来调用子类对象产生多态，然后将指针赋值给新数组中（不能覆盖原来数组中的职工），完成赋值之后，将类中的数组置空（delete）然后将新数组赋值给类中的数组，将新的人数赋值给类中的人数，将文件标记为非空（最后利用此文件来判断之后每一步功能的实现），最后保存到文件中：利用文件的操作，for循环把数据全部写入到文件中；</p>
+<p>WorkerManager 构造函数中判断文件是否存在并且赋初值，有三种情况，当文件不存在、文件存在但记录为空、文件存在记录也存在，前两种直接将类中数组初始化为空，将人数置为空，把文件标记为空；第三种，首先先获取文件中的人数，然后重新赋值给类中的人数成员，再将数组重新赋值，将数组中的对象全部初始化（利用函数封装）</p>
+<p>显示职工信息，用for循环遍历每个对象，调用showEmp个人信息函数；删除职工：输入要删除的对象id，将id传入一个判断此人是否存在的函数，如果此人存在返回此人的下标，然后利用循环从此对象开始，往前覆盖，最后将数组减一，保存文件；清屏。</p>
+<p>修改职工信息，把该职工的各个属性置空，然后重新输入修改的值，赋值操作利用 父类指针指向子类对象产生多态赋值，然后将其保存到该职工数组中；查找职工有两种方式：id号和姓名查找，第一次输入id判断是否存在，存在并输出个人信息， 按姓名查找，输入一个姓名，如果存在则打印信息，设置一个标记，不存在把标记修改，然后输出不存在信息。</p>
+<p>按职工编号进行排序：升序和降序排序，利用for循环循环遍历，设置一个数等于第一个数的下标，然后第二层循环开始判断之后的数大小，升序和降序都要重新赋值下标，当与剩余数全部比较完之后，交换两个对象的下标；</p>
+<p>清空所有文档需要利用ios :: trun 模式删除文件并重新创建，判断数组是否为空，不为空释放掉数组中的每个元素，然后将数组再释放掉，将数组置为空，将人数置为0，文件标记为空。</p>
 <h1 id="C-提高"><a href="#C-提高" class="headerlink" title="C++提高"></a>C++提高</h1><p>​	本阶段主要针对C++泛型编程和STL技术做详细讲解，探讨C++更深层的使用</p>
 <h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>模板就是建立通用的模具，大大提高复用性；例如 生活中的模板</p>
 <p><strong>模板的特点：</strong></p>
@@ -1089,12 +1101,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">82k</span>
+    <span title="站点总字数">83k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:14</span>
+    <span title="站点阅读时长">1:15</span>
 </div>
 
         
