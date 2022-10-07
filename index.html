@@ -346,6 +346,140 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/06/HTML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/awa.png">
+      <meta itemprop="name" content="John Chen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="调查处的007">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/06/HTML/" class="post-title-link" itemprop="url">HTML</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-06 19:45:58" itemprop="dateCreated datePublished" datetime="2022-10-06T19:45:58+08:00">2022-10-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-10-07 23:00:28" itemprop="dateModified" datetime="2022-10-07T23:00:28+08:00">2022-10-07</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p><strong>HTML:超文本标记语言（hypertext Markup Language）</strong>；描述网页的一种语言</p>
+<p>网页后缀：html</p>
+<p>网页是由：图片、链接、文字、声音、视频等元素组成；其实就是一个html文件</p>
+<h1 id="Web标准"><a href="#Web标准" class="headerlink" title="Web标准"></a>Web标准</h1><p>Web标准是由 W3C组织和其他标准化组织制定的<strong>一系列标准的集合</strong>。W3C（万维网联盟）</p>
+<p><strong><strong><strong><strong>Web标准的构成：结构（Structure）、表现（Presentation）、和行为（Behavior）</strong></strong></strong></strong></p>
+<img src="/2022/10/06/HTML/web1.png" class title="web1">
+
+<h1 id="HTML基本语法"><a href="#HTML基本语法" class="headerlink" title="HTML基本语法"></a>HTML基本语法</h1><img src="/2022/10/06/HTML/HTML1.png" class title="HTML1">
+
+<p><strong>双标签关系可以分为：包含关系和并列关系</strong></p>
+<h2 id="HTML基本结构标签"><a href="#HTML基本结构标签" class="headerlink" title="HTML基本结构标签"></a>HTML基本结构标签</h2><img src="/2022/10/06/HTML/HTML2.png" class title="HTML2">
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span> LIU <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span>SHAO<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>根据标签的语义，在合适的地方给一个最为合理的标签，可以让页面结构更清晰</strong></p>
+<p><strong>标题标签</strong>:</p>
+<p><strong>&lt; h1&gt; - &lt; h6&gt; : 总共六级标签</strong></p>
+<p><strong>段落标签：</strong></p>
+<p><strong>&lt; p &gt; -  &lt; &#x2F;p&gt; : 给文字进行分段</strong></p>
+<p><strong>换行标签：</strong></p>
+<p><strong>&lt; &#x2F;br&gt; : 换行标签，是一个单标签</strong> 原本单词为：break</p>
+<p><strong>文本格式化标签</strong>：</p>
+<img src="/2022/10/06/HTML/HTML3.png" class title="HTML3">
+
+<p><strong>&lt; div&gt; 和 &lt; span&gt;标签</strong></p>
+<p>&lt; div&gt; 和 &lt; span&gt; <strong>是没有语义的</strong>，它们就是<strong>一个盒子</strong>，<strong>用来装内容</strong>（布局）</p>
+<p><strong>div最显著的特点是一个div只占一行,span都可以放在一行上</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span> 1111111111 <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  //一个div占一行</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span> 2222222222 <span class="tag">&lt;/<span class="name">div</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span> wuwu <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span> lulu<span class="tag">&lt;/<span class="name">span</span>&gt;</span> // span 可以都放在一行上</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>图像标签和路径</strong></p>
+<p><strong>1、图像标签：</strong>&lt; img&gt; 标签用来定义HTML页面中的图像。</p>
+<img src="/2022/10/06/HTML/img.png" class title="img">
+
+<img src="/2022/10/06/HTML/img1.png" class title="img1">
+
+<p><strong>图像的插入需要把插入的图片放入与文件相同的路径下</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt; img src = &quot;img.png&quot; /&gt;</span><br><span class="line">&lt; img src = &quot;img1.png&quot;  alt = &quot;我是pig老师&quot;/&gt;   // 当文本不能显示时 显示替换的文字</span><br><span class="line">&lt; img src = &quot;img.png&quot;  title = &quot;我是pig老师&quot;/&gt;</span><br><span class="line">&lt; img src = &quot;img.png&quot;  width = &quot;500&quot;/&gt;</span><br><span class="line">&lt; img src = &quot;img.png&quot;  height = &quot;100&quot;/&gt;</span><br><span class="line">&lt; img src = &quot;img.png&quot;  border = &quot;15&quot;/&gt; // border 15 表示加粗</span><br><span class="line">                                     </span><br></pre></td></tr></table></figure>
+
+<img src="/2022/10/06/HTML/img2.png" class title="img2">
+
+<img src="/2022/10/06/HTML/img3.png" class title="img3">
+
+<p><strong>相对路径</strong></p>
+<img src="/2022/10/06/HTML/img4.png" class title="img4">
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 同一级路径</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> = <span class="string">&quot;baidu.png&quot;</span> /&gt;</span></span><br><span class="line">//下一级路径</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> = <span class="string">&quot;image/baidu.png&quot;</span>/&gt;</span></span><br><span class="line">//上一级路径</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> = <span class="string">&quot;../baidu.png&quot;</span> /&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>绝对路径</strong></p>
+<img src="/2022/10/06/HTML/img5.png" class title="img5">
+
+<p>绝对路径直接复制图片所在位置地址 来进行访问</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/14/Python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -593,7 +727,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -606,7 +740,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -647,12 +781,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">113k</span>
+    <span title="站点总字数">114k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:42</span>
+    <span title="站点阅读时长">1:44</span>
 </div>
 
         
