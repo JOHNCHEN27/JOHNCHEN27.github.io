@@ -37,8 +37,17 @@
 <meta property="og:image" content="http://example.com/2022/10/06/HTML/img3.png">
 <meta property="og:image" content="http://example.com/2022/10/06/HTML/img4.png">
 <meta property="og:image" content="http://example.com/2022/10/06/HTML/img5.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/ahref1.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/ahref2.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/zhushi.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/specialchar.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/table.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/table1.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/contain.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/contain1.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/contain2.png">
 <meta property="article:published_time" content="2022-10-06T11:45:58.000Z">
-<meta property="article:modified_time" content="2022-10-07T15:24:23.281Z">
+<meta property="article:modified_time" content="2022-10-08T08:20:52.900Z">
 <meta property="article:author" content="John Chen">
 <meta property="article:tag" content="网页">
 <meta name="twitter:card" content="summary">
@@ -203,7 +212,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-07 23:24:23" itemprop="dateModified" datetime="2022-10-07T23:24:23+08:00">2022-10-07</time>
+                <time title="修改时间：2022-10-08 16:20:52" itemprop="dateModified" datetime="2022-10-08T16:20:52+08:00">2022-10-08</time>
               </span>
 
           <br>
@@ -212,14 +221,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -287,6 +296,48 @@
 <img src="/2022/10/06/HTML/img5.png" class title="img5">
 
 <p>绝对路径直接复制图片所在位置地址 来进行访问</p>
+<p><strong>超链接标签</strong></p>
+<p>在HTML标签中，**&lt; a &gt;**标签用于定义超链接，作用说从一个页面链接到另一个页面</p>
+<p><strong>1、超链接的语法格式</strong></p>
+<img src="/2022/10/06/HTML/ahref1.png" class title="ahref1">
+
+<p>_self用当前窗口打开，为默认值， _blank在新窗口打开，一般用_blank</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">&quot;http://baidu.com&quot;</span> <span class="attr">target</span> = <span class="string">&quot;_blank&quot;</span>&gt;</span>超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2022/10/06/HTML/ahref2.png" class title="ahref2">
+
+<p><strong>锚点链接：点我们点击的链接，可以快速定位到页面中的某个位置</strong></p>
+<p>在链接文本的href属性中，设置属性值为**#名字**的形式；如：<a href="#two"> 第2集 &lt; &#x2F;a&gt;</a></p>
+<p>找到目标位置标签，里面<strong>添加一个id属性 &#x3D; 刚才的名字</strong>， 如： &lt; h3 id &#x3D; “two”&gt;  第2集简介&lt; h3&gt;</p>
+<p><strong>注释</strong></p>
+<img src="/2022/10/06/HTML/zhushi.png" class title="zhushi">
+
+<p><strong>&lt;! – 注释语句 –&gt;  ；快捷键： ctrl + &#x2F;</strong></p>
+<p><strong>特殊字符</strong></p>
+<img src="/2022/10/06/HTML/specialchar.png" class title="specialchar">
+
+<p><strong>&amp;nbsp； 空格符 、 &amp;lt； 小于号、 &amp;gt； 大于号</strong>  </p>
+<h3 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h3><p>表格主要<strong>用于显示、展示数据</strong>，不是用来布局页面的</p>
+<img src="/2022/10/06/HTML/table.png" class title="table">
+
+<p><strong>表头单元格：也是一个单元格，常用于表格的第一行，突出重要性，表头单元格里面的文字会加粗居中显示</strong>    <strong>语法：&lt; th&gt; 文字 &lt; &#x2F;th&gt;</strong></p>
+<p><strong>表格属性</strong></p>
+<p> 表格属性在实际开放中不常用，通过CSS来设置</p>
+<img src="/2022/10/06/HTML/table1.png" class title="table1">
+
+
+
+<p><strong>表格结构标签</strong></p>
+<p><strong>&lt; thead&gt; &lt; &#x2F;thead&gt; ; 用于定义表格的头部。&lt; thead&gt;内部必须有&lt; tr&gt;标签。一般是位于第一行</strong></p>
+<p><strong>&lt; tbody&gt;&lt; &#x2F;body&gt; ; 用于定义表格的主体。</strong>主要用于放数据主体</p>
+<p><strong>合并单元格</strong></p>
+<img src="/2022/10/06/HTML/contain.png" class title="contain">
+
+<img src="/2022/10/06/HTML/contain1.png" class title="contain1">
+
+<img src="/2022/10/06/HTML/contain2.png" class title="contain2">
+
+<p><strong>跨行合并：rowspan &#x3D; “合并单元格个数”   跨列合并：colspan &#x3D; “合并单元格个数”</strong></p>
 
     </div>
 
@@ -387,7 +438,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web%E6%A0%87%E5%87%86"><span class="nav-number">2.</span> <span class="nav-text">Web标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">HTML基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.</span> <span class="nav-text">HTML基本结构标签</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web%E6%A0%87%E5%87%86"><span class="nav-number">2.</span> <span class="nav-text">Web标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">HTML基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.</span> <span class="nav-text">HTML基本结构标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.1.</span> <span class="nav-text">表格标签</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -457,12 +508,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">114k</span>
+    <span title="站点总字数">121k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:44</span>
+    <span title="站点阅读时长">1:50</span>
 </div>
 
         
