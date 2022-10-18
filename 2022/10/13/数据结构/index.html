@@ -27,11 +27,13 @@
 <meta property="og:site_name" content="调查处的007">
 <meta property="og:description" content="LearnDataStructure">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/10/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/sort1.png">
 <meta property="article:published_time" content="2022-10-13T11:40:03.000Z">
-<meta property="article:modified_time" content="2022-10-13T13:12:52.094Z">
+<meta property="article:modified_time" content="2022-10-18T01:40:18.515Z">
 <meta property="article:author" content="John Chen">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/10/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/sort1.png">
 
 <link rel="canonical" href="http://example.com/2022/10/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
 
@@ -184,10 +186,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-10-13 19:40:03 / 修改时间：21:12:52" itemprop="dateCreated datePublished" datetime="2022-10-13T19:40:03+08:00">2022-10-13</time>
+              <time title="创建时间：2022-10-13 19:40:03" itemprop="dateCreated datePublished" datetime="2022-10-13T19:40:03+08:00">2022-10-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-10-18 09:40:18" itemprop="dateModified" datetime="2022-10-18T09:40:18+08:00">2022-10-18</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -195,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>812</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -222,6 +230,18 @@
 <p><strong>直接插入排序：采用顺序查找法查找插入位置</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">int</span> j;</span><br><span class="line">    <span class="comment">//从第二个数开始往前面的数进行比较，因为第一个数直接插入 不用从第一个数开始</span></span><br><span class="line">    <span class="comment">//如果这个数小于前面一个数的话，将这个数和前面的数依次比较 然后交换位置</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt; len;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> temp = arr[i]; <span class="comment">//先保存这个数</span></span><br><span class="line">        <span class="keyword">if</span>(arr[i] &lt; arr[i<span class="number">-1</span>]) <span class="comment">//如果小于前面的数，则进行交换比较操作</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(j = i<span class="number">-1</span>; j &gt;=<span class="number">0</span>&amp;&amp; arr[j]&gt;temp;j--)</span><br><span class="line">            &#123;</span><br><span class="line">                arr[j+<span class="number">1</span>]= arr[j];</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j+<span class="number">1</span>] = temp;</span><br><span class="line">            <span class="comment">//if里面最关键的步骤，利用for循环将两个数进行交换 j--是要把前面的所有数进行比较</span></span><br><span class="line">            <span class="comment">//直到找到大于的数 在进行交换</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> arr[] = &#123;<span class="number">1</span>,<span class="number">34</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">4</span>,<span class="number">0</span>,<span class="number">3</span>&#125;;</span><br><span class="line">    <span class="type">int</span> len = <span class="built_in">sizeof</span>(arr) /<span class="built_in">sizeof</span>(<span class="type">int</span>);</span><br><span class="line">    <span class="built_in">swap</span>(arr,len);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i&lt; len;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">test</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<h2 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>从前往后（从后往前），将两两相邻的数进行比较，若为逆序则进行交换，一趟冒泡排序下来，会将最大的一个数交换到序列末尾（将最小的一个数交换到最前面），直到序列全部有序</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">myprintf</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; len ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; arr[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="type">int</span> arr1[], <span class="type">int</span> len1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; len1; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//从第一个数开始比较</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; len1<span class="number">-1</span>-i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//将相邻的两个数开始比较，每一趟完成之后比较的次数减一，</span></span><br><span class="line">            <span class="keyword">if</span>(arr1[j+<span class="number">1</span>]  &lt; arr1[j])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> temp = arr1[j+<span class="number">1</span>];</span><br><span class="line">                arr1[j+<span class="number">1</span>] = arr1[j];</span><br><span class="line">                arr1[j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//从后往前</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">BubbleSort2</span><span class="params">(<span class="type">int</span> arr2[],<span class="type">int</span> len2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = len <span class="number">-1</span>; i &gt;=<span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i ;  j &gt;<span class="number">0</span>; j--) <span class="comment">// 考虑条件满足每一趟排序后比较次 减1</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//每排序完一次，比较次数少一次</span></span><br><span class="line">            <span class="keyword">if</span>(arr2[j] &lt; arr2[j<span class="number">-1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> temp = arr2[j];</span><br><span class="line">                arr2[j] = arr2[j<span class="number">-1</span>];</span><br><span class="line">                arr2[j<span class="number">-1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//从前往后</span></span><br><span class="line">    <span class="type">int</span> arr1[] = &#123;<span class="number">1</span>,<span class="number">34</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">334</span>,<span class="number">768</span>,<span class="number">989</span>,<span class="number">3435</span>&#125;;</span><br><span class="line">    <span class="type">int</span> len1 = <span class="built_in">sizeof</span>(arr1) /<span class="built_in">sizeof</span>(<span class="type">int</span>);</span><br><span class="line">    <span class="built_in">BubbleSort1</span>(arr1,len1);</span><br><span class="line">    <span class="built_in">myprintf</span>(arr1,len1);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//从后往前</span></span><br><span class="line">    <span class="type">int</span> arr2[] = &#123;<span class="number">53</span>,<span class="number">768</span>,<span class="number">96</span>,<span class="number">45</span>,<span class="number">753</span>,<span class="number">24</span>,<span class="number">75</span>,<span class="number">97</span>&#125;;</span><br><span class="line">    <span class="type">int</span> len2 = <span class="built_in">sizeof</span>(arr2) / <span class="built_in">sizeof</span>(<span class="type">int</span>);</span><br><span class="line">    <span class="built_in">BubbleSort2</span>(arr2,len2);</span><br><span class="line">    <span class="built_in">myprintf</span>(arr2,len2);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p><strong>基本思想：将两个或两个以上的有序子序列 归并成为一个有序序列</strong></p>
+<p>在内部排序中，通常采用的是<strong>二路归并排序</strong></p>
+<img src="/2022/10/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/sort1.png" class title="sort1">
 
     </div>
 
@@ -260,8 +280,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/10/10/CSS/" rel="prev" title="CSS">
-      <i class="fa fa-chevron-left"></i> CSS
+    <a href="/2022/10/06/HTML/" rel="prev" title="HTML-CSS">
+      <i class="fa fa-chevron-left"></i> HTML-CSS
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -322,7 +342,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">1.1.</span> <span class="nav-text">插入排序</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">1.1.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F"><span class="nav-number">1.2.</span> <span class="nav-text">交换排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">冒泡排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.</span> <span class="nav-text">归并排序</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -338,7 +358,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -392,12 +412,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">127k</span>
+    <span title="站点总字数">130k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:56</span>
+    <span title="站点阅读时长">1:59</span>
 </div>
 
         

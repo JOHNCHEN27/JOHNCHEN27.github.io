@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="HTML基础">
+  <meta name="description" content="HTML - CSS基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML">
+<meta property="og:title" content="HTML-CSS">
 <meta property="og:url" content="http://example.com/2022/10/06/HTML/index.html">
 <meta property="og:site_name" content="调查处的007">
-<meta property="og:description" content="HTML基础">
+<meta property="og:description" content="HTML - CSS基础">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/10/06/HTML/web1.png">
 <meta property="og:image" content="http://example.com/2022/10/06/HTML/HTML1.png">
@@ -55,8 +55,15 @@
 <meta property="og:image" content="http://example.com/2022/10/06/HTML/input.png">
 <meta property="og:image" content="http://example.com/2022/10/06/HTML/input1.png">
 <meta property="og:image" content="http://example.com/2022/10/06/HTML/input2.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/CSSRules.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/CSSCodeStyle.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/select.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/select1.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/select1test.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/idselect.png">
+<meta property="og:image" content="http://example.com/2022/10/06/HTML/idselect1.png">
 <meta property="article:published_time" content="2022-10-06T11:45:58.000Z">
-<meta property="article:modified_time" content="2022-10-10T12:40:14.501Z">
+<meta property="article:modified_time" content="2022-10-18T04:55:02.369Z">
 <meta property="article:author" content="John Chen">
 <meta property="article:tag" content="语言">
 <meta name="twitter:card" content="summary">
@@ -75,7 +82,7 @@
   };
 </script>
 
-  <title>HTML | 调查处的007</title>
+  <title>HTML-CSS | 调查处的007</title>
   
 
 
@@ -203,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          HTML
+          HTML-CSS
         </h1>
 
         <div class="post-meta">
@@ -221,7 +228,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-10 20:40:14" itemprop="dateModified" datetime="2022-10-10T20:40:14+08:00">2022-10-10</time>
+                <time title="修改时间：2022-10-18 12:55:02" itemprop="dateModified" datetime="2022-10-18T12:55:02+08:00">2022-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,14 +246,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.7k</span>
+              <span>5.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -258,7 +265,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>HTML基础</p>
+        <p>HTML - CSS基础</p>
 <span id="more"></span>
 
 <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p><strong>HTML:超文本标记语言（hypertext Markup Language）</strong>；描述网页的一种语言</p>
@@ -419,6 +426,56 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span> = <span class="string">&quot;2&quot;</span> <span class="attr">cols</span> = <span class="string">&quot;20&quot;</span>&gt;</span>来自星星的你 ~ 呜呜呜<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
+
+<h1 id="CSS简介"><a href="#CSS简介" class="headerlink" title="CSS简介"></a>CSS简介</h1><p><strong>CSS（层叠样式表）</strong>的主要使用场景就是美化页面，布局页面的</p>
+<p><strong>CSS最大价值：由HTML专注去做结构呈现，样式交给CSS ，即结构(HTML)和样式(CSS)分离</strong></p>
+<h2 id="CSS语法规范"><a href="#CSS语法规范" class="headerlink" title="CSS语法规范"></a>CSS语法规范</h2><p><strong>CSS规则由两个主要的部分构成：选择器以及一条或多条声明</strong></p>
+<img src="/2022/10/06/HTML/CSSRules.png" class title="CSSRules">
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        //head标签中写 style风格，在style中设置CSS规则</span></span><br><span class="line"><span class="language-css">        //主要由两个部分组成：选择器和声明  选择器是<span class="selector-tag">HTML</span>中的标签，花括号内是设置的具体样式</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">p</span>&#123;   // <span class="selector-tag">p</span>为段落标签（也就是选择器）</span></span><br><span class="line"><span class="language-css">            <span class="attribute">color</span> : red ;    </span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-size</span> : <span class="number">25px</span>;</span></span><br><span class="line"><span class="language-css">            </span></span><br><span class="line"><span class="language-css">            //<span class="attribute">color</span>和fontsize 为具体设置的样式</span></span><br><span class="line"><span class="language-css">            //属性和属性值用:冒号 分开， 这样一对交键值对</span></span><br><span class="line"><span class="language-css">            //键值对之间用分号；分开</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>CSS代码风格</strong></p>
+<img src="/2022/10/06/HTML/CSSCodeStyle.png" class title="CSSCodeStyle">
+
+<p><strong>样式选择器，属性名，属性值关键字全部使用小写字母，更好分辨</strong></p>
+<p><strong>空格规范：在选择器后面加空格  属性：后面加空格</strong></p>
+<h2 id="CSS基础选择器"><a href="#CSS基础选择器" class="headerlink" title="CSS基础选择器"></a>CSS基础选择器</h2><p>选择器：根据不同需求把不同的标签选出来就是选择器的作用，简单来说就是 <strong>选择标签用</strong></p>
+<h3 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h3><img src="/2022/10/06/HTML/select.png" class title="select">
+
+<p>作用：标签选择器可以把某一类标签全部选择出来，比如所有的&lt; div&gt; 和所有的 &lt; span&gt;标签</p>
+<p>优点：能快速为同类型的标签统一设置样式</p>
+<p>缺点：不能设计差异化样式，只能选择全部的当前标签</p>
+<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><img src="/2022/10/06/HTML/select1.png" class title="select1">
+
+<p>开发中最常用，自定义差异化不同的标签,<strong>类名由自己定义，一般要见名知意，名字不能是标签的名字，一般采用英文字母来表示</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.p</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">color</span>:  red;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        //<span class="selector-class">.p</span>是一个类选择器</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span> = <span class="string">&quot;p&quot;</span>&gt;</span> wuwuwu <span class="tag">&lt;/<span class="name">p</span>&gt;</span>   //调用类选择器 来指定具体标签内容设置样式</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>类选择器-多类名</strong></p>
+<p><strong>可以给一个标签指定多个类名</strong>，从而达到更多的选择目的，这些类名都可以选出这个标签；简单来说就是 <strong>一个标签有多个名字</strong></p>
+<p><strong>&lt; div class &#x3D; “red font22”&gt; liu </strong></p>
+<p>在class属性中写多个类名，<strong>多个类名必须用空格分开；</strong>这个标签就可以分别具有这些类名的样式</p>
+<p><strong>在实际开发中，将公共的样式写在一个类中，调用这个类可以节省很多代码，从而达到简化代码量</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.p</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">color</span> ： red ;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.box</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100</span> px;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span> = <span class="string">&quot;box p&quot;</span>&gt;</span> you are little baby<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  //通过调用多个类，来实现具体样式</span><br><span class="line">    //可以节省代码量， 两个类之间必须用空格分开</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用类选择器画盒子"><a href="#使用类选择器画盒子" class="headerlink" title="使用类选择器画盒子"></a>使用类选择器画盒子</h3><img src="/2022/10/06/HTML/select1test.png" class title="select1test">
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.box</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span> : <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.red</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-color</span> : red;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.green</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-color</span> : green;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">&quot;box red&quot;</span>&gt;</span> p1 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span> = <span class="string">&quot;box green&quot;</span>&gt;</span> p2 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">calss</span> = <span class="string">&quot;box red&quot;</span> &gt;</span> p3       </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h3><img src="/2022/10/06/HTML/idselect.png" class title="idselect">
+
+<p><strong>样式#定义，结构id调用，只能调用一次，别人切勿使用</strong></p>
+<p><strong>id选择器和类选择器的区别</strong>：</p>
+<img src="/2022/10/06/HTML/idselect1.png" class title="idselect1">
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.did</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">color</span> : red ;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span> = <span class="string">&quot;did&quot;</span>&gt;</span> ppp <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -460,8 +517,8 @@
       <i class="fa fa-chevron-left"></i> Python
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/10/10/CSS/" rel="next" title="CSS">
-      CSS <i class="fa fa-chevron-right"></i>
+    <a href="/2022/10/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="next" title="数据结构">
+      数据结构 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -521,7 +578,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web%E6%A0%87%E5%87%86"><span class="nav-number">2.</span> <span class="nav-text">Web标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">HTML基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.</span> <span class="nav-text">HTML基本结构标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.1.</span> <span class="nav-text">表格标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.2.</span> <span class="nav-text">列表标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.3.</span> <span class="nav-text">表单标签</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web%E6%A0%87%E5%87%86"><span class="nav-number">2.</span> <span class="nav-text">Web标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">HTML基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.</span> <span class="nav-text">HTML基本结构标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.1.</span> <span class="nav-text">表格标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.2.</span> <span class="nav-text">列表标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.3.</span> <span class="nav-text">表单标签</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS%E7%AE%80%E4%BB%8B"><span class="nav-number">4.</span> <span class="nav-text">CSS简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83"><span class="nav-number">4.1.</span> <span class="nav-text">CSS语法规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">4.2.</span> <span class="nav-text">CSS基础选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">4.2.1.</span> <span class="nav-text">标签选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">4.2.2.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%E7%94%BB%E7%9B%92%E5%AD%90"><span class="nav-number">4.2.3.</span> <span class="nav-text">使用类选择器画盒子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">4.2.4.</span> <span class="nav-text">id选择器</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -537,7 +594,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -591,12 +648,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">127k</span>
+    <span title="站点总字数">130k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:56</span>
+    <span title="站点阅读时长">1:59</span>
 </div>
 
         
