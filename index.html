@@ -346,6 +346,251 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/27/Express/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/awa.png">
+      <meta itemprop="name" content="John Chen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="调查处的007">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/27/Express/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-04-27 10:44:41 / 修改时间：10:46:39" itemprop="dateCreated datePublished" datetime="2024-04-27T10:44:41+08:00">2024-04-27</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Express基础"><a href="#Express基础" class="headerlink" title="Express基础"></a>Express基础</h1><p>Express：  一个web轻量服务器 可作为后端服务开发<br>需要下载第三包模块  npm i <a href="mailto:&#101;&#120;&#x70;&#114;&#101;&#x73;&#x73;&#x40;&#52;&#x2e;&#x31;&#x37;&#x2e;&#49;">&#101;&#120;&#x70;&#114;&#101;&#x73;&#x73;&#x40;&#52;&#x2e;&#x31;&#x37;&#x2e;&#49;</a></p>
+<p>导入使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&#x27;express&#x27;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">//调用express函数生成服务器实例</span><br><span class="line">const app = express()</span><br><span class="line"></span><br><span class="line">//创建路由接受响应url请求</span><br><span class="line"></span><br><span class="line">app.get(&#x27;get&#x27;, (req,res) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">//收到请求后 将请求参数返回</span><br><span class="line"> const params = req.query</span><br><span class="line"></span><br><span class="line">//设置响应头</span><br><span class="line">res.setHeader(&#x27;Content-Type&#x27;, &#x27;text/html;charset=utf-8&#x27;)</span><br><span class="line"></span><br><span class="line">res.send(&#x27;接受到Get请求&#x27;)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.post(&#x27;post&#x27;, (req,res) =&gt; &#123;</span><br><span class="line"></span><br><span class="line"> const body = req.body</span><br><span class="line"> res.setHeader(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)</span><br><span class="line"> res.send(&#123;</span><br><span class="line">    status: 0,</span><br><span class="line">    msg:  &#x27;接受到Post请求&#x27;,</span><br><span class="line">    data: body</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//监听端口</span><br><span class="line">app.listen( 80, () =&gt; &#123;</span><br><span class="line"></span><br><span class="line">   console.log(&#x27; 成功启动服务 &#x27;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/创建路由</span><br><span class="line">const router = express.Router()</span><br><span class="line"></span><br><span class="line">//调用路由来处理接口</span><br><span class="line">router.get(&#x27;get&#x27;, (req,res) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">   console.log（&#x27;接受到get请求&#x27;）</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//导出模块使用</span><br><span class="line"></span><br><span class="line">module.exports = router</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">//主文件中使用</span><br><span class="line">const router = require(&#x27;./apiRouter.js&#x27;)</span><br><span class="line"></span><br><span class="line">//调用服务器实例use方法 注册全局路由</span><br><span class="line">app.use(router)</span><br><span class="line"></span><br><span class="line">//中间件的使用 -- 服务器启动后 所有请求会先进入全局中间件 中间件之间以及路由之间会继续转发  中间件函数包含next方法</span><br><span class="line"></span><br><span class="line">const mw = (req,res,next) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">console.log(&#x27;  1 &#x27;)</span><br><span class="line"></span><br><span class="line">   //处理完业务逻辑后-- 最后记得使用next函数交给下一个中间件或路由</span><br><span class="line">   next()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//注册全局中间件-- 调用use方法</span><br><span class="line">app.use(mw)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//局部中间件使用 </span><br><span class="line">const fm1 = (req,res next) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">   next()     </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//调用局部中间件</span><br><span class="line">app.get(&#x27;get&#x27;, fm1, (req,res) =&gt;&#123;</span><br><span class="line"></span><br><span class="line">//当路由中包含中间件参数时，匹配到此路由的url之后 会先进入中间件处理 然后再进入此路由处理</span><br><span class="line">//use()方法 注册的路由和中间件是全局的 </span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//错误级别的中间件使用</span><br><span class="line">app.use((err,req,res,next) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">  res.send(&#x27;err = &#x27; + err.message)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;&#x2F;express中包含三个内置的中间件 static、 json 、urlencoded<br>static用来存放静态页面<br>json用来解析json数据<br>urlencoded 用来处理post’请求提交的表单数据</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/27/Axios/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/awa.png">
+      <meta itemprop="name" content="John Chen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="调查处的007">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/27/Axios/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-04-27 10:43:13 / 修改时间：10:44:31" itemprop="dateCreated datePublished" datetime="2024-04-27T10:43:13+08:00">2024-04-27</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Axios基础"><a href="#Axios基础" class="headerlink" title="Axios基础"></a>Axios基础</h1><p><strong>Axios语法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">url: </span><br><span class="line">method: </span><br><span class="line">data: &#123;&#125;</span><br><span class="line">params:&#123;</span><br><span class="line">&#125;&#125;).then (result=&gt;&#123;&#125;)</span><br><span class="line">.catch(error=&gt;&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Axios原理</strong><br>内部使用XMLHttpRequest 和Promise对象封装 发送请求<br>自定义封装Axios方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">function myAxios(config)&#123;</span><br><span class="line"></span><br><span class="line">//判断是否有参数</span><br><span class="line">  if(cofig.params)&#123;</span><br><span class="line">    //拼接参数到url 利用浏览器自带的URLSearchParams</span><br><span class="line">    const searchParams = new URLSearchParams(config.params)</span><br><span class="line">    config.url += &quot;?$&#123;searchParams&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//内部返回一个Promise对象</span><br><span class="line">return new Promise((resolve,reject) =&gt;&#123;</span><br><span class="line"></span><br><span class="line">   //promise new出来的初始状态为待定 在内部使用XMLHttpRequest发送请求</span><br><span class="line">  const  xhr = new XMLHttpRequst()</span><br><span class="line">  xhr.open(config.method || &#x27;get&#x27;, config.url)</span><br><span class="line"></span><br><span class="line"> xhr.addEventListener(&#x27;loadend&#x27;, ()=&gt;&#123;</span><br><span class="line"></span><br><span class="line">   //收到response回应</span><br><span class="line">  const data = xhr.response</span><br><span class="line">  if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt;300)&#123;</span><br><span class="line">            //xhr响应成功 调用promise的resolve 改变promise状态为已结束 从而调用回调函数.then</span><br><span class="line">          resolve(JSON.parse(xhr.response))</span><br><span class="line">&#125;else&#123;</span><br><span class="line">   reject(new Error(xhr.response))   </span><br><span class="line">&#125;</span><br><span class="line">if(config.data)&#123;</span><br><span class="line">xhr.setAttributeHeader(&#x27;Content-Type&#x27;,&#x27;application/json&#x27;)</span><br><span class="line">  xhr.send(JSON.stringify(config.data)) </span><br><span class="line">&#125;</span><br><span class="line">xhr.send()</span><br><span class="line">&#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/27/Vue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/awa.png">
+      <meta itemprop="name" content="John Chen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="调查处的007">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/27/Vue/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-04-27 10:31:06 / 修改时间：10:50:41" itemprop="dateCreated datePublished" datetime="2024-04-27T10:31:06+08:00">2024-04-27</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>title: Vue<br>date:<br>tags: 语言<br>categories: 前端</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/27/Vue/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/30/JS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -378,7 +623,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-25 14:27:17" itemprop="dateModified" datetime="2022-11-25T14:27:17+08:00">2022-11-25</time>
+                <time title="修改时间：2022-12-22 14:23:49" itemprop="dateModified" datetime="2022-12-22T14:23:49+08:00">2022-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -872,7 +1117,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -917,7 +1162,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -926,12 +1171,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">190k</span>
+    <span title="站点总字数">200k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:52</span>
+    <span title="站点阅读时长">3:02</span>
 </div>
 
         
