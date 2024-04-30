@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Linux基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux">
+<meta property="og:url" content="http://example.com/2022/12/06/Linux%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="调查处的007">
+<meta property="og:description" content="Linux基础">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-06T03:01:36.704Z">
+<meta property="article:modified_time" content="2024-04-30T04:16:46.238Z">
+<meta property="article:author" content="John Chen">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/12/06/Linux%E5%91%BD%E4%BB%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Linux | 调查处的007</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">调查处的007</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/06/Linux%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/awa.png">
+      <meta itemprop="name" content="John Chen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="调查处的007">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-12-06 11:01:36" itemprop="dateCreated datePublished" datetime="2022-12-06T11:01:36+08:00">2022-12-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-30 12:16:46" itemprop="dateModified" datetime="2024-04-30T12:16:46+08:00">2024-04-30</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Linux基础</p>
+<span id="more"></span>
+
+<h1 id="Linux命令基础"><a href="#Linux命令基础" class="headerlink" title="Linux命令基础"></a>Linux命令基础</h1><h2 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a><strong>ls</strong>命令</h2><p>ls – 查看目录下的内容</p>
+<p><strong>语法： ls [-a -l -h ]  指定路径</strong></p>
+<p>-a表示： all 查看目录下的全部内容，包含隐藏文件（.开头的文件）</p>
+<p>-l表示：  以列表（list）的形式查看目录下的内容 </p>
+<p>-h表示： 查看目录下文件内容的大小  <strong>必须与 -l 一起使用</strong></p>
+<p><strong>如果没有选项直接使用ls命令，如: ls    默认是查看当前目录下的内容，不包含隐藏文件，以平铺的方式查看。</strong></p>
+<p><strong>nohup java -jar Reggie-1.0-SNAPSHOT.jar &amp;&gt; Reggie.log &amp;</strong></p>
+<p>nohup：不挂起后端运行程序， 指定输出日志到Reggie.log文件，最后一个&amp; 表示放在后端运行，退出终端服务器不受影响</p>
+<p><strong>停止服务：</strong> ps -ef | grep java -jar  查看jar包运行的进程</p>
+<p><strong>kill -9 进程id ：</strong>杀死进程 停止服务</p>
+<p><strong>后台运行reids：src&#x2F;redis-server redis.conf</strong> 前提需要修改配置文件的dae为yes</p>
+<h2 id="配置java环境变量"><a href="#配置java环境变量" class="headerlink" title="配置java环境变量"></a>配置java环境变量</h2><p>首先将下载好的Linux版本的jdk上传</p>
+<p>**解压安装包：tar -zxvf 安装包名 -C &#x2F;usr&#x2F;local **     解压安装包到指定目录下，需要注意的是要将yum命令更新（Centos系统、RedHat系统）</p>
+<p>配置环境变量： vim &#x2F;etc&#x2F;profile 修改配置文件，在文件末尾写入如下配置：</p>
+<p><strong>JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;jdk</strong>        <strong>–设置java环境目录为安装目录</strong></p>
+<p>PA<strong>TH&#x3D;$JAVA_HOME&#x2F;bin:$PATH</strong>   <strong>–设置环境变量，追加java目录下的bin目录到环境变量中</strong></p>
+<p>重新加载profile文件，使更改的文件立即生效：source &#x2F;etc&#x2F;profile</p>
+<p>检测是否安装成功：java -version</p>
+<h2 id="cd和pwd命令"><a href="#cd和pwd命令" class="headerlink" title="cd和pwd命令"></a>cd和pwd命令</h2><p>cd – 切换工作目录</p>
+<p><strong>语法： cd 指定路径</strong></p>
+<p><strong>相对路径：</strong>以<strong>当前目录为起点</strong>的路径</p>
+<p><strong>绝对路径：</strong>以<strong>根目录为起点</strong>的路径  根目录: &#x2F; (斜杠)</p>
+<p><strong>特殊路径:</strong>   <strong>.</strong> 表示当前目录  <strong>..</strong> 表示上一级工作目录  **~ **表示home目录</p>
+<p>pwd：查看当前工作目录</p>
+<p><strong>语法： pwd</strong>  没有参数</p>
+<h2 id="mkdir命令"><a href="#mkdir命令" class="headerlink" title="mkdir命令"></a>mkdir命令</h2><p>mkdir – 创建目录</p>
+<p><strong>语法： mkdir -p  目录名</strong></p>
+<p>当连续创建多个层级目录时，可以使用 -p选项， -p表示创建层级目录</p>
+<p>一般情况下 是在当前目录下创建一个目录名</p>
+<p>rmdir：删除空目录</p>
+<p>语法：rmdir -p 目录名             -p:当子目录被删除后父目录为空则被一并删除</p>
+<p>rmdir itcast* ：删除名称以itcast开始的空目录</p>
+<h2 id="touch-cat-more命令"><a href="#touch-cat-more命令" class="headerlink" title="touch-cat-more命令"></a>touch-cat-more命令</h2><p><strong>touch – 创建文件</strong></p>
+<p><strong>语法： touch 文件名</strong></p>
+<p>可以用上相对、绝对、特殊路径</p>
+<p><strong>cat  – 查看文件内容</strong>     </p>
+<p><strong>语法： cat 文件名</strong>（Linux路径）</p>
+<p><strong>more – 查看文件内容 可以翻页查看</strong></p>
+<p><strong>语法： more linux路径</strong></p>
+<p>进行翻页查看 用q退出查看</p>
+<p>tail 文件名： 查看文件倒数十行内容， tail -20 文件名表示查看文件倒数二十行内容，可以指定参数，tail -f 文件名：表示动态查看文件内容</p>
+<h2 id="cp-mv-rm命令"><a href="#cp-mv-rm命令" class="headerlink" title="cp-mv-rm命令"></a>cp-mv-rm命令</h2><p><strong>cp （copy）– 复制文件或文件夹</strong> </p>
+<p><strong>语法： cp [-r] 参数1  参数2</strong>    -r表示复制文件夹及其子目录和文件需要复制文件夹时带上-r</p>
+<p>参数1表示： 复制的文件名  参数2表示： 复制到哪个路径下 （不写默认当前路径下）</p>
+<p><strong>mv（move） – 移动文件或文件夹</strong></p>
+<p><strong>语法： mv 参数1 参数2</strong>    </p>
+<p>参数1：被移动的文件或文件夹</p>
+<p>参数2：要移动去的地方 （Linux路径）</p>
+<p>如果复制文件去的路径不存在则会将 当前的文件名改成路径的那个名称</p>
+<p>mv改名：mv hi.txt lncanswer&#x2F;hello.txt    将hi文件移动到lncanswer文件夹目录并改名为hello</p>
+<p><strong>rm（remove） – 删除文件或文件夹</strong>或目录</p>
+<p><strong>语法： rm [-r -f]  参数1 参数2 参数n</strong></p>
+<p>-r： 删除文件夹      -f ： 强制删除文件或文件夹</p>
+<p>参数:表示被删除的文件或文件夹， 支持多个用空格隔开， 参数支持通配符 * ，*表示匹配任意内容</p>
+<p><strong>注意：rm命令谨慎使用</strong></p>
+<h2 id="grep-wc-管道符"><a href="#grep-wc-管道符" class="headerlink" title="grep - wc -管道符 |"></a>grep - wc -管道符 |</h2><p><strong>grep – 从文件中通过关键字过滤文件行</strong></p>
+<p><strong>语法： grep [-n] 关键字 linux文件路径</strong></p>
+<p>文件路径可以搭配管道符 | 来使用</p>
+<p>关键字 建议用 双引号 “ “ 包含起来  </p>
+<p>-n参数 是表示匹配的关键字有多少行</p>
+<p><strong>wc – 统计文件的各类信息</strong></p>
+<p><strong>语法： wc [-c -m -l -w] 文件路径</strong></p>
+<p><strong>不带选项默认统计： 行数 、单词数、字节数</strong></p>
+<p><strong>-c： 字节数  -m：字符数  -l：行数  -w：单词数</strong></p>
+<p>文件路径也可以搭配管道符来使用 | </p>
+<p><strong>管道符：| 将管道符左边的命令结果 ，作为右边命令的输入</strong></p>
+<p>如： 查看text.txt文件下 关键字itheima的行数</p>
+<p><strong>cat text.txt | grep “itheima” | wc -l</strong> </p>
+<h2 id="which-find命令"><a href="#which-find命令" class="headerlink" title="which-find命令"></a>which-find命令</h2><p><strong>which – 查看linux命令程序的所在位置</strong></p>
+<p><strong>语法： which Linux命令</strong></p>
+<p>Linux的命令本质上是一个程序，被存放在某个目录下</p>
+<p><strong>find – 查找指定文件</strong></p>
+<p><strong>语法： find 起始路径 -name “被查找的文件名”</strong></p>
+<p><strong>支持通配符</strong></p>
+<p>find &#x2F; -name “LNC”  : 查找根目录下 文件名为 LNC的文件</p>
+<p><strong>按文件大小查找： find 起始路径 -size +&#x2F;- n[KMG]</strong></p>
+<p>如： find &#x2F; -size +100m ：查找根目录下大小大于100M的文件</p>
+<h2 id="echo-tail-重定向符"><a href="#echo-tail-重定向符" class="headerlink" title="echo-tail-重定向符"></a>echo-tail-重定向符</h2><p><strong>echo – 在命令行输出指定内容</strong></p>
+<p><strong>语法： echo 输出的内容</strong></p>
+<p>复杂的内容可以用 <strong>双引号 “ “</strong> 包围输出</p>
+<p>**反引号符： &#96;&#96; 被 反引号符包围的内容，会被作为命令执行，并非普通字符 **  </p>
+<p>如: echo <code> pwd</code>  ； 表示在命令行输出pwd命令的结果</p>
+<p><strong>重定向符:</strong> </p>
+<p> 一个右移符: <strong>&gt;</strong>  将符号左侧命令的结果，<strong>覆盖</strong>写入到符号右侧指定文件中</p>
+<p>两个右移符： <strong>&gt;&gt;</strong> 将符号左侧命令的结果，<strong>追加</strong>写入到符号右侧指定文件中</p>
+<p><strong>tail – 查看文件尾部内容，并可以持续跟踪</strong></p>
+<p><strong>语法： tail [ -f -num ] Linux路径</strong></p>
+<p>-f ：持续跟踪    -num ：需要查看的行数   Linux路径：查看的文件名</p>
+<p>不写默认查看文件最后十行</p>
+<h4 id="Nginx命令"><a href="#Nginx命令" class="headerlink" title="Nginx命令"></a>Nginx命令</h4><p>需要进入Nginx的sbin目录下面执行</p>
+<p>启动Nginx服务命令: <strong>.&#x2F;nginx</strong>        </p>
+<p>停止Nginx服务命令：**.&#x2F;nginx -s stop**</p>
+<p>启动完成后可以查看Nginx进程： <strong>ps -ef | grep nginx</strong></p>
+<p>重新加载配置文件：**.&#x2F;nginx -s reload**</p>
+<h4 id="Linux防火墙"><a href="#Linux防火墙" class="headerlink" title="Linux防火墙"></a>Linux防火墙</h4><p>查看防火墙状态：systemctl status firewalld、firewall-cmd –state</p>
+<p>暂时关闭防火墙：systemctl stop firewalld</p>
+<p>永久关闭防火墙：systemctl disable firewalld</p>
+<p>开启防火墙：systemctl start firewalld</p>
+<p>开放指定端口：firewall-cmd –zone&#x3D;public –add-port&#x3D;8080&#x2F;tcp –permanent</p>
+<p>关闭指定端口：firewall-cmd –zone&#x3D;public –remove-port&#x3D;8080&#x2F;tcp –permanent</p>
+<p>立即生效：firewall-cmd –reload</p>
+<p>查看开放的端口：firewall-cmd –zone&#x3D;public –list-ports</p>
+<h4 id="Linux初始化IP配置"><a href="#Linux初始化IP配置" class="headerlink" title="Linux初始化IP配置"></a>Linux初始化IP配置</h4><p>修改配置文件 ：</p>
+<p> <strong>cd &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts</strong>  进入到根目录下的etc下的sysconfig下的netwo-scripts目录下。</p>
+<p>修改network-scripts下的ifcfg-ens33文件：</p>
+<p><strong>vi  ifcfg-ens33</strong>   **将ONBOOT配置项默认值no改为yes **重新启动Linux</p>
+<h2 id="vi-vim编辑器"><a href="#vi-vim编辑器" class="headerlink" title="vi\vim编辑器"></a>vi\vim编辑器</h2>
+
+<p><strong>语法： vi 文件路径       vim 文件路径</strong></p>
+
+
+
+
+
+
+
+
+
+
+<h1 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h1><p>超级用户：root  拥有最大权限     普通用户只拥有在home目录下的权限</p>
+
+
+<h2 id="sudo命令"><a href="#sudo命令" class="headerlink" title="sudo命令"></a>sudo命令</h2><p><strong>语法： sudo  其它命令</strong>     可以为一条命令临时赋予root权限</p>
+
+
+<p>使用sudo 需要给普通用户配置sudo认证</p>
+
+
+
+
+
+
+<h2 id="用户和用户组"><a href="#用户和用户组" class="headerlink" title="用户和用户组"></a>用户和用户组</h2>
+
+<p><strong>用户管理： 用户创建、 删除； 查看用户所属组、修改用户所属组</strong></p>
+
+
+<p><strong>getent：查看当前系统中有哪些用户</strong></p>
+
+
+
+
+
+
+<h2 id="查看权限控制"><a href="#查看权限控制" class="headerlink" title="查看权限控制"></a>查看权限控制</h2>
+
+<p><strong>r-w-x： 可读可写可执行</strong></p>
+<p>r : 针对文件可以查看文件内容    如：ls命令</p>
+<p>w:针对文件表示可以修改此文件    可以在文件夹内：创建、删除、改名等操作</p>
+<p>x：针对文件表示可以将文件作为程序执行   如： cd</p>
+<h2 id="修改权限控制"><a href="#修改权限控制" class="headerlink" title="修改权限控制"></a>修改权限控制</h2><p><strong>chmod – 修改文件或文件夹的权限信息</strong></p>
+<p><strong>语法： chmod [ -R ] 权限 文件或文件夹</strong>      <strong>-R表示对文件夹内的全部内容应用同样的操作</strong></p>
+
+
+
+
+<p>chmod 751 text.txt 表示 将text.txt文件的权限修改为 user &#x3D; 可读可写可执行  group &#x3D; 可读可执行   other &#x3D; 可执行</p>
+<p><strong>chown – 修改文件、文件夹的所属用户和用户组</strong></p>
+<p><strong>语法： chown [-R] [ 用户 ] [ : ] [ 用户组 ] 文件或文件夹</strong></p>
+<p><strong>chown命令只适用于root用户执行 ， 普通用户无法修改所属为其他用户或组</strong></p>
+
+
+
+
+<h1 id="Linux实用技巧"><a href="#Linux实用技巧" class="headerlink" title="Linux实用技巧"></a>Linux实用技巧</h1><p><strong>强制停止：  ctrl + c</strong>     某些程序的运行，如果想要强制停止它  或 命令输入错误 可以实用 ctrl + c 强制停止当前</p>
+<p><strong>退出或 登出 ： ctrl  + d</strong>    退出账号的登录 ，退出某些特定程序的专属页面</p>
+<p><strong>历史搜索命令： history</strong>   查看历史输入过的命令</p>
+<p><strong>！ 命令前缀 ： 自动执行上一次匹配前缀的命令</strong>  如： ！py ： 从历史命令中由下至上 查找与py相匹配的第一个命令</p>
+<p><strong>ctrl + l ：输入内容去匹配命令</strong>    如果是需要的内容 回车执行 ； 键盘左右键可以得到此命令</p>
+
+
+<p><strong>清屏： ctrl + l 或 命令clear  可以清空终端内容</strong></p>
+<h2 id="Linux安装软件"><a href="#Linux安装软件" class="headerlink" title="Linux安装软件"></a>Linux安装软件</h2><p><strong>ymp： RPM包软件管理器，用于自动化安装配置Linux软件，并可以自动解决依赖问题</strong></p>
+<p><strong>语法： yum [ - y ]  [ install ] [ remove ] [ search ]  软件名称</strong></p>
+
+
+
+
+<h2 id="systemctl-控制软件开关"><a href="#systemctl-控制软件开关" class="headerlink" title="systemctl 控制软件开关"></a>systemctl 控制软件开关</h2>
+
+
+
+
+
+<h2 id="软连接"><a href="#软连接" class="headerlink" title="软连接"></a>软连接</h2><p><strong>ln命令创建软连接</strong>        <strong>语法： ln  -s  参数1  参数2</strong></p>
+
+
+
+
+<h2 id="日期和时区"><a href="#日期和时区" class="headerlink" title="日期和时区"></a>日期和时区</h2><p><strong>date命令： 通过date命令 可以在命令行中查看系统时间</strong></p>
+
+
+
+
+<p><strong>注意： 如果带有空格 需要使用双引号包格式化字符串 作为一个整体</strong></p>
+
+
+
+
+<p><strong>修改Linux时区</strong>：</p>
+
+
+
+
+<p><strong>ntp程序 ：自动校准系统时间</strong>：</p>
+
+
+<p><strong>校准： ntpdate -u ntp.aliyun.com</strong></p>
+<h2 id="IP地址和主机名"><a href="#IP地址和主机名" class="headerlink" title="IP地址和主机名"></a>IP地址和主机名</h2><p><strong>IP地址： 命令ifconfig查看IP地址</strong></p>
+
+
+
+
+<p><strong>主机名:</strong> </p>
+
+
+<p><strong>修改主机名： hostnamectl set-hostname 主机名,修改主机名(需要root权限)</strong></p>
+
+
+<p><strong>域名解析：</strong></p>
+
+
+
+
+<h2 id="配置Linux固定IP地址"><a href="#配置Linux固定IP地址" class="headerlink" title="配置Linux固定IP地址"></a>配置Linux固定IP地址</h2><p>原因：</p>
+
+
+<p><strong>在VM中配置固定IP</strong></p>
+
+
+
+
+<h2 id="网络请求和下载"><a href="#网络请求和下载" class="headerlink" title="网络请求和下载"></a>网络请求和下载</h2><p><strong>ping： 检查指定网络服务器是否是可联通状态</strong></p>
+
+
+
+
+<p><strong>wget命令： 非交互式的文件下载器，可以在命令行内下载网络文件</strong></p>
+
+
+
+
+<p><strong>curl命令</strong></p>
+
+
+
+
+
+
+
+
+<h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3>
+
+
+
+<p><strong>查看端口占用：</strong></p>
+
+
+
+
+
+
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2>
+
+
+
+
+
+
+
+<h2 id="主机状态监控"><a href="#主机状态监控" class="headerlink" title="主机状态监控"></a>主机状态监控</h2><p><strong>查看系统资源占用：</strong> 可以通过top命令查看CPU、内存使用情况；  <strong>默认每五秒刷新一次，语法：直接输入top即可，按q 或ctrl + c 退出</strong></p>
+
+
+
+
+
+
+
+
+<p><strong>磁盘信息监控</strong></p>
+
+
+
+
+<p><strong>网络状态监控</strong></p>
+
+
+
+
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a><strong>环境变量</strong></h2>
+
+
+
+<h3 id="符号"><a href="#符号" class="headerlink" title="$ 符号"></a>$ 符号</h3><p>$ 符号用于 取变量的值</p>
+
+
+
+
+<h3 id="自行设置环境变量"><a href="#自行设置环境变量" class="headerlink" title="自行设置环境变量"></a><strong>自行设置环境变量</strong></h3>
+
+
+
+
+
+
+
+<h2 id="Linux上传和下载"><a href="#Linux上传和下载" class="headerlink" title="Linux上传和下载"></a>Linux上传和下载</h2>
+
+
+
+<h2 id="压缩和解压"><a href="#压缩和解压" class="headerlink" title="压缩和解压"></a>压缩和解压</h2><p><strong>tar命令</strong></p>
+ 
+
+<p><strong>tar常用组合：</strong></p>
+
+
+<p><strong>tar解压：</strong></p>
+
+
+
+
+<p><strong>zip命令压缩：</strong></p>
+
+
+<p><strong>unzip命令解压</strong></p>
+
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="John Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="John Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/30/JS/" rel="prev" title="JS">
+      <i class="fa fa-chevron-left"></i> JS
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/08/23/Docker%E5%91%BD%E4%BB%A4/" rel="next" title="docker基础">
+      docker基础 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">Linux命令基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ls%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">ls命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEjava%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">配置java环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cd%E5%92%8Cpwd%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.</span> <span class="nav-text">cd和pwd命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mkdir%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.</span> <span class="nav-text">mkdir命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#touch-cat-more%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.</span> <span class="nav-text">touch-cat-more命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cp-mv-rm%E5%91%BD%E4%BB%A4"><span class="nav-number">1.6.</span> <span class="nav-text">cp-mv-rm命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grep-wc-%E7%AE%A1%E9%81%93%E7%AC%A6"><span class="nav-number">1.7.</span> <span class="nav-text">grep - wc -管道符 |</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#which-find%E5%91%BD%E4%BB%A4"><span class="nav-number">1.8.</span> <span class="nav-text">which-find命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#echo-tail-%E9%87%8D%E5%AE%9A%E5%90%91%E7%AC%A6"><span class="nav-number">1.9.</span> <span class="nav-text">echo-tail-重定向符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx%E5%91%BD%E4%BB%A4"><span class="nav-number">1.9.0.1.</span> <span class="nav-text">Nginx命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">1.9.0.2.</span> <span class="nav-text">Linux防火墙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux%E5%88%9D%E5%A7%8B%E5%8C%96IP%E9%85%8D%E7%BD%AE"><span class="nav-number">1.9.0.3.</span> <span class="nav-text">Linux初始化IP配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vi-vim%E7%BC%96%E8%BE%91%E5%99%A8"><span class="nav-number">1.10.</span> <span class="nav-text">vi\vim编辑器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7"><span class="nav-number">2.</span> <span class="nav-text">用户</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sudo%E5%91%BD%E4%BB%A4"><span class="nav-number">2.1.</span> <span class="nav-text">sudo命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84"><span class="nav-number">2.2.</span> <span class="nav-text">用户和用户组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6"><span class="nav-number">2.3.</span> <span class="nav-text">查看权限控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6"><span class="nav-number">2.4.</span> <span class="nav-text">修改权限控制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">3.</span> <span class="nav-text">Linux实用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">Linux安装软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#systemctl-%E6%8E%A7%E5%88%B6%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%85%B3"><span class="nav-number">3.2.</span> <span class="nav-text">systemctl 控制软件开关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.3.</span> <span class="nav-text">软连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E5%8C%BA"><span class="nav-number">3.4.</span> <span class="nav-text">日期和时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP%E5%9C%B0%E5%9D%80%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="nav-number">3.5.</span> <span class="nav-text">IP地址和主机名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AELinux%E5%9B%BA%E5%AE%9AIP%E5%9C%B0%E5%9D%80"><span class="nav-number">3.6.</span> <span class="nav-text">配置Linux固定IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%92%8C%E4%B8%8B%E8%BD%BD"><span class="nav-number">3.7.</span> <span class="nav-text">网络请求和下载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.7.1.</span> <span class="nav-text">端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-number">3.8.</span> <span class="nav-text">进程管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E6%9C%BA%E7%8A%B6%E6%80%81%E7%9B%91%E6%8E%A7"><span class="nav-number">3.9.</span> <span class="nav-text">主机状态监控</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">3.10.</span> <span class="nav-text">环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7"><span class="nav-number">3.10.1.</span> <span class="nav-text">$ 符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E8%A1%8C%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">3.10.2.</span> <span class="nav-text">自行设置环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD"><span class="nav-number">3.11.</span> <span class="nav-text">Linux上传和下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B"><span class="nav-number">3.12.</span> <span class="nav-text">压缩和解压</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="John Chen"
+      src="/images/awa.png">
+  <p class="site-author-name" itemprop="name">John Chen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JOHNCHEN27" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JOHNCHEN27" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Chen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">225k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:24</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>

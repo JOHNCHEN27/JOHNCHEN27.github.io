@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="docker安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS安装docker">
+<meta property="og:url" content="http://example.com/2023/11/22/Centos7%E5%AE%89%E8%A3%85Docker/index.html">
+<meta property="og:site_name" content="调查处的007">
+<meta property="og:description" content="docker安装">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/assets/image-20210418154704436.png">
+<meta property="og:image" content="http://example.com/assets/image-20210417133020614.png">
+<meta property="article:published_time" content="2023-11-22T07:15:36.051Z">
+<meta property="article:modified_time" content="2024-04-30T04:15:08.031Z">
+<meta property="article:author" content="John Chen">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/image-20210418154704436.png">
+
+<link rel="canonical" href="http://example.com/2023/11/22/Centos7%E5%AE%89%E8%A3%85Docker/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CentOS安装docker | 调查处的007</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">调查处的007</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/22/Centos7%E5%AE%89%E8%A3%85Docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/awa.png">
+      <meta itemprop="name" content="John Chen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="调查处的007">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CentOS安装docker
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-11-22 15:15:36" itemprop="dateCreated datePublished" datetime="2023-11-22T15:15:36+08:00">2023-11-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-30 12:15:08" itemprop="dateModified" datetime="2024-04-30T12:15:08+08:00">2024-04-30</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>docker安装</p>
+<span id="more"></span>
+
+<h1 id="0-安装Docker"><a href="#0-安装Docker" class="headerlink" title="0.安装Docker"></a>0.安装Docker</h1><p>Docker 分为 CE 和 EE 两大版本。CE 即社区版（免费，支持周期 7 个月），EE 即企业版，强调安全，付费使用，支持周期 24 个月。</p>
+<p>Docker CE 分为 <code>stable</code> <code>test</code> 和 <code>nightly</code> 三个更新频道。</p>
+<p>官方网站上有各种环境下的 <a target="_blank" rel="noopener" href="https://docs.docker.com/install/">安装指南</a>，这里主要介绍 Docker CE 在 CentOS上的安装。</p>
+<h1 id="1-CentOS安装Docker"><a href="#1-CentOS安装Docker" class="headerlink" title="1.CentOS安装Docker"></a>1.CentOS安装Docker</h1><p>Docker CE 支持 64 位版本 CentOS 7，并且要求内核版本不低于 3.10， CentOS 7 满足最低内核的要求，所以我们在CentOS 7安装Docker。</p>
+<h2 id="1-1-卸载（可选）"><a href="#1-1-卸载（可选）" class="headerlink" title="1.1.卸载（可选）"></a>1.1.卸载（可选）</h2><p>如果之前安装过旧版本的Docker，可以使用下面命令卸载：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">                  docker-client \</span><br><span class="line">                  docker-client-latest \</span><br><span class="line">                  docker-common \</span><br><span class="line">                  docker-latest \</span><br><span class="line">                  docker-latest-logrotate \</span><br><span class="line">                  docker-logrotate \</span><br><span class="line">                  docker-selinux \</span><br><span class="line">                  docker-engine-selinux \</span><br><span class="line">                  docker-engine \</span><br><span class="line">                  docker-ce</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-2-安装docker"><a href="#1-2-安装docker" class="headerlink" title="1.2.安装docker"></a>1.2.安装docker</h2><p>首先需要大家虚拟机联网，安装yum工具</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils \</span><br><span class="line">           device-mapper-persistent-data \</span><br><span class="line">           lvm2 --skip-broken</span><br></pre></td></tr></table></figure>
+
+
+
+<p>然后更新本地镜像源：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置docker镜像源</span></span><br><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">    </span><br><span class="line">sed -i &#x27;s/download.docker.com/mirrors.aliyun.com\/docker-ce/g&#x27; /etc/yum.repos.d/docker-ce.repo</span><br><span class="line"></span><br><span class="line">yum makecache fast</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>然后输入命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y docker-ce</span><br></pre></td></tr></table></figure>
+
+<p>docker-ce为社区免费版本。稍等片刻，docker即可安装成功。</p>
+<h2 id="1-3-启动docker"><a href="#1-3-启动docker" class="headerlink" title="1.3.启动docker"></a>1.3.启动docker</h2><p>Docker应用需要用到各种端口，逐一去修改防火墙设置。非常麻烦，因此建议大家直接关闭防火墙！</p>
+<p>启动docker前，一定要关闭防火墙后！！</p>
+<p>启动docker前，一定要关闭防火墙后！！</p>
+<p>启动docker前，一定要关闭防火墙后！！</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line"><span class="comment"># 禁止开机启动防火墙</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure>
+
+
+
+<p>通过命令启动docker：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker  <span class="comment"># 启动docker服务</span></span><br><span class="line"></span><br><span class="line">systemctl stop docker  <span class="comment"># 停止docker服务</span></span><br><span class="line"></span><br><span class="line">systemctl restart docker  <span class="comment"># 重启docker服务</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>然后输入命令，可以查看docker版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker -v</span><br></pre></td></tr></table></figure>
+
+<p>如图：</p>
+<p><img src="/assets/image-20210418154704436.png" alt="image-20210418154704436"> </p>
+<h2 id="1-4-配置镜像加速"><a href="#1-4-配置镜像加速" class="headerlink" title="1.4.配置镜像加速"></a>1.4.配置镜像加速</h2><p>docker官方镜像仓库网速较差，我们需要设置国内镜像服务：</p>
+<p>参考阿里云的镜像加速文档：<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></p>
+<h1 id="2-CentOS7安装DockerCompose"><a href="#2-CentOS7安装DockerCompose" class="headerlink" title="2.CentOS7安装DockerCompose"></a>2.CentOS7安装DockerCompose</h1><h2 id="2-1-下载"><a href="#2-1-下载" class="headerlink" title="2.1.下载"></a>2.1.下载</h2><p>Linux下需要通过命令下载：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-`<span class="built_in">uname</span> -s`-`<span class="built_in">uname</span> -m` &gt; /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<p>如果下载速度较慢，或者下载失败，可以使用课前资料提供的docker-compose文件：</p>
+<p><img src="/assets/image-20210417133020614.png" alt="image-20210417133020614"></p>
+<p>上传到<code>/usr/local/bin/</code>目录也可以。</p>
+<h2 id="2-2-修改文件权限"><a href="#2-2-修改文件权限" class="headerlink" title="2.2.修改文件权限"></a>2.2.修改文件权限</h2><p>修改文件权限：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改权限</span></span><br><span class="line"><span class="built_in">chmod</span> +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="2-3-Base自动补全命令："><a href="#2-3-Base自动补全命令：" class="headerlink" title="2.3.Base自动补全命令："></a>2.3.Base自动补全命令：</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 补全命令</span></span><br><span class="line">curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
+
+<p>如果这里出现错误，需要修改自己的hosts文件：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;199.232.68.133 raw.githubusercontent.com&quot;</span> &gt;&gt; /etc/hosts</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="3-Docker镜像仓库"><a href="#3-Docker镜像仓库" class="headerlink" title="3.Docker镜像仓库"></a>3.Docker镜像仓库</h1><p>搭建镜像仓库可以基于Docker官方提供的DockerRegistry来实现。</p>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://hub.docker.com/_/registry">https://hub.docker.com/_/registry</a></p>
+<h2 id="3-1-简化版镜像仓库"><a href="#3-1-简化版镜像仓库" class="headerlink" title="3.1.简化版镜像仓库"></a>3.1.简化版镜像仓库</h2><p>Docker官方的Docker Registry是一个基础版本的Docker镜像仓库，具备仓库管理的完整功能，但是没有图形化界面。</p>
+<p>搭建方式比较简单，命令如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --restart=always \</span><br><span class="line">    --name registry	\</span><br><span class="line">    -p 5000:5000 \</span><br><span class="line">    -v registry-data:/var/lib/registry \</span><br><span class="line">    registry</span><br></pre></td></tr></table></figure>
+
+
+
+<p>命令中挂载了一个数据卷registry-data到容器内的&#x2F;var&#x2F;lib&#x2F;registry 目录，这是私有镜像库存放数据的目录。</p>
+<p>访问<a target="_blank" rel="noopener" href="http://yourip:5000/v2/_catalog">http://YourIp:5000/v2/_catalog</a> 可以查看当前私有镜像服务中包含的镜像</p>
+<h2 id="3-2-带有图形化界面版本"><a href="#3-2-带有图形化界面版本" class="headerlink" title="3.2.带有图形化界面版本"></a>3.2.带有图形化界面版本</h2><p>使用DockerCompose部署带有图象界面的DockerRegistry，命令如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.0&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">registry:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">registry</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./registry-data:/var/lib/registry</span></span><br><span class="line">  <span class="attr">ui:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">joxit/docker-registry-ui:static</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8080</span><span class="string">:80</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">REGISTRY_TITLE=lnc私有仓库</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">REGISTRY_URL=http://registry:5000</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">registry</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-3-配置Docker信任地址"><a href="#3-3-配置Docker信任地址" class="headerlink" title="3.3.配置Docker信任地址"></a>3.3.配置Docker信任地址</h2><p>我们的私服采用的是http协议，默认不被Docker信任，所以需要做一个配置：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开要修改的文件</span></span><br><span class="line">vi /etc/docker/daemon.json</span><br><span class="line"><span class="comment"># 添加内容：</span></span><br><span class="line"><span class="string">&quot;insecure-registries&quot;</span>:[<span class="string">&quot;http://192.168.12.131:8080&quot;</span>]</span><br><span class="line"><span class="comment"># 重加载</span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line"><span class="comment"># 重启docker</span></span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="John Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="John Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/09/18/docker%E5%AE%B9%E5%99%A8%E5%AE%89%E8%A3%85/" rel="prev" title="docker安装软件">
+      <i class="fa fa-chevron-left"></i> docker安装软件
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/04/27/Vue/" rel="next" title="Vue">
+      Vue <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-%E5%AE%89%E8%A3%85Docker"><span class="nav-number">1.</span> <span class="nav-text">0.安装Docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-CentOS%E5%AE%89%E8%A3%85Docker"><span class="nav-number">2.</span> <span class="nav-text">1.CentOS安装Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E5%8D%B8%E8%BD%BD%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">1.1.卸载（可选）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E5%AE%89%E8%A3%85docker"><span class="nav-number">2.2.</span> <span class="nav-text">1.2.安装docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E5%90%AF%E5%8A%A8docker"><span class="nav-number">2.3.</span> <span class="nav-text">1.3.启动docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E9%85%8D%E7%BD%AE%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F"><span class="nav-number">2.4.</span> <span class="nav-text">1.4.配置镜像加速</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-CentOS7%E5%AE%89%E8%A3%85DockerCompose"><span class="nav-number">3.</span> <span class="nav-text">2.CentOS7安装DockerCompose</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E4%B8%8B%E8%BD%BD"><span class="nav-number">3.1.</span> <span class="nav-text">2.1.下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="nav-number">3.2.</span> <span class="nav-text">2.2.修改文件权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Base%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-number">3.3.</span> <span class="nav-text">2.3.Base自动补全命令：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">3.Docker镜像仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E7%AE%80%E5%8C%96%E7%89%88%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="nav-number">4.1.</span> <span class="nav-text">3.1.简化版镜像仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E5%B8%A6%E6%9C%89%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E7%89%88%E6%9C%AC"><span class="nav-number">4.2.</span> <span class="nav-text">3.2.带有图形化界面版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E9%85%8D%E7%BD%AEDocker%E4%BF%A1%E4%BB%BB%E5%9C%B0%E5%9D%80"><span class="nav-number">4.3.</span> <span class="nav-text">3.3.配置Docker信任地址</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="John Chen"
+      src="/images/awa.png">
+  <p class="site-author-name" itemprop="name">John Chen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JOHNCHEN27" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JOHNCHEN27" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Chen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">225k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:24</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
